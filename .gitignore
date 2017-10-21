@@ -102,3 +102,6 @@ ENV/
 
 # js stuff
 node_modules/
+
+# mac 
+.DS_Store
