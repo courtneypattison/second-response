@@ -43,7 +43,6 @@ class AskComponent extends Component {
   }
 
   selectNeed(evt) {
-    console.log(evt)
     this.setState({
       need: evt.target.value
     })
@@ -97,7 +96,7 @@ class AskComponent extends Component {
   render() {
     return (
       <Wrapper header="What do you need?">
-        <p>Post what you need here!</p>
+        <p className="subtext">Post what you need here!</p>
         <form onSubmit={this.submit}>
           <select name="needs" value={this.state.need} onChange={this.selectNeed}>
             {this.getOptions()}
@@ -133,7 +132,7 @@ class AskComponent extends Component {
                  onChange={this.updateZipCode}
                  value={this.state.zip}>
           </input>
-          <button className="submit" type="submit">Submit</button>
+          <button className="submit cta-dark" type="submit">Submit</button>
         </form>
       </Wrapper>
     );

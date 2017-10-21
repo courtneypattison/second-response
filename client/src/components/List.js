@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Wrapper from './Wrapper';
 import ListItem from './ListItem';
 import Map from './Map';
+import NeedModal from './NeedModal';
 
 class ListView extends Component {
 
@@ -13,6 +14,9 @@ class ListView extends Component {
       selected: ''
     }
     this.getNeeds = this.getNeeds.bind(this);
+    this.renderModal = this.renderModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.fillNeed = this.fillNeed.bind(this);
   }
 
   getNeeds() {
@@ -24,12 +28,28 @@ class ListView extends Component {
   }
 
   selectNeed(need) {
-    console.log(need)
+    this.setState({selected: need});
+  }
+
+  closeModal() {
+    this.setState({selected: ''});
+  }
+
+  fillNeed(need) {
+    window.location.href = "mailto:user@example.com?subject=Subject&body=message%20goes%20here";
+    this.setState({selected: ''});
+  }
+
+  renderModal() {
+    return <NeedModal need={this.state.selected}
+                      onClose={this.closeModal}
+                      onFill={this.fillNeed}/>;
   }
 
   render() {
     return (
-      <Wrapper header="Current Needs">
+      <Wrapper header="Second Response">
+        { this.state.selected && this.renderModal() }
         <Map/>
         <ul className="list-items">
           {this.getNeeds()}

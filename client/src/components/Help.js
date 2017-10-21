@@ -5,18 +5,17 @@ import Wrapper from './Wrapper';
 const Help = withRouter(({history}) => (
   <Wrapper header="Second Response">
     <div className="help">
-      <p>
-        Connecting those in need, to those
-        who can volunteer to help!
+      <p className="subtext">
+        Connecting those in need to those who can help
       </p>
       <div className="cta-container">
         <button className="cta-dark"
                 onClick={() => history.push("/ask") }>
-          I need help
+          I need help!
         </button>
         <button className="cta-light"
                 onClick={() => history.push("/list") }>
-          I can help
+          I can help!
         </button>
       </div>
     </div>
