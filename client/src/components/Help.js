@@ -3,14 +3,18 @@ import {withRouter} from 'react-router-dom';
 import Wrapper from './Wrapper';
 
 const Help = withRouter(({history}) => (
-  <Wrapper header="What would you like to do?">
+  <Wrapper header="Second Response">
     <div className="help">
+      <p>
+        Connecting those in need, to those
+        who can volunteer to help!
+      </p>
       <div className="cta-container">
-        <button className="cta-light"
+        <button className="cta-dark"
                 onClick={() => history.push("/ask") }>
           I need help
         </button>
-        <button className="cta-dark"
+        <button className="cta-light"
                 onClick={() => history.push("/list") }>
           I can help
         </button>

@@ -8,21 +8,21 @@ import {
 } from 'react-router-dom'
 import './index.css';
 import App from './App';
+import Help from './components/Help';
 import Ask from './components/Ask'
+import List from './components/List'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import {app} from './reducers'
+import store from './store';
 import registerServiceWorker from './registerServiceWorker';
-
-let store = createStore(app);
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <div>
-        <Route exact path="/" component={App}/>
+        <Route component={App}/>
+        <Route exact path="/" component={Help}/>
         <Route exact path="/ask" component={Ask}/>
-
+        <Route exact path="/list" component={List}/>
       </div>
     </Router>
   </Provider>
