@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  diplay: flex;
+  flex-direction: row;
+  margin: auto;
+  text-align: center;
+  width: 320px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+input, select {
+  display: flex;
+  flex-direction: row;
+  height: 32px;
+  margin: 8px;
+  line-height: 32px;
+}
