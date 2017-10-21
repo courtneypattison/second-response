@@ -50,7 +50,7 @@ function initMap() {
     var central = { lat: 38.350676, lng: -122.384205 };
 
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
+        zoom: 8,
         center: central,
     });
 
