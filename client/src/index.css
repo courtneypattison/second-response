@@ -2,25 +2,116 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #ccc;
+
 }
 
 .wrapper {
-  diplay: flex;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   margin: auto;
   text-align: center;
-  width: 320px;
+  width: 350px;
+  background-color: #fff;
+  min-height: 350px;
+  padding: 24px 12px;
 }
-
 
 form {
   display: flex;
   flex-direction: column;
 }
+
 input, select {
   display: flex;
   flex-direction: row;
   height: 32px;
   margin: 8px;
   line-height: 32px;
+  padding-left: 8px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+button.submit {
+  display: flex;
+  flex-direction: row;
+  height: 32px;
+  margin: 8px;
+  cursor: pointer;
+  text-align:center;
+  padding: 0 130px;
+}
+
+.map {
+  height: 280px;
+  width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.list-items {
+  flex: 1 0 auto;
+  background-color: #fff;
+  border: 1px solid #eee;
+  max-height: 200px;
+  overflow: scroll;
+}
+
+ul.list-items .list-item {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 4px 4px 4px 12px;
+  width: 100%;
+  text-align: left;
+}
+
+ul.list-items .list-item:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+ul.list-items .list-item h1 {
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 2px;
+}
+ul.list-items .list-item p {
+  color: #ccc;
+  margin: 2px 0;
+  font-weight: 300;
+}
+
+.cta-light, .cta-dark {
+  width: 100px;
+  margin: 8px;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.cta-light {
+    background-color: #eee;
+    color: #456496;
+    border: 1px solid #eee;
+}
+
+.cta-light:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.cta-dark {
+  background-color: #456496;
+  color: #fff;
+  border: 1px solid #456496;
+}
+
+.cta-dark:hover {
+  background-color: #374f77;
+  cursor: pointer;
 }

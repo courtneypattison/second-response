@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import Help from './Help';
 import Wrapper from './Wrapper';
+import axios from 'axios';
 
 class AskComponent extends Component {
   constructor() {
     super();
     this.state = {
         description: '',
-        count: 1,
+        count: '',
         address: '',
         city: '',
         state: '',
@@ -29,6 +30,16 @@ class AskComponent extends Component {
   submit(evt) {
     evt.preventDefault()
     console.log(this.state)
+
+    axios.post('/needs', this.state)
+      .then((res) => {
+          console.log(res)
+          this.props.history.push('/list');
+      })
+      .catch((res) => {
+          console.log(res)
+          this.props.history.push('/list');
+      });
   }
 
   selectNeed(evt) {
@@ -98,6 +109,7 @@ class AskComponent extends Component {
                  value={this.state.description}>
           </input>
           <input type="number"
+                 placeholder="How many do you need? (ex: 5)"
                  onChange={this.updateCount}
                  value={this.state.count}>
           </input>
@@ -121,7 +133,7 @@ class AskComponent extends Component {
                  onChange={this.updateZipCode}
                  value={this.state.zip}>
           </input>
-          <button type="submit">Submit</button>
+          <button className="submit" type="submit">Submit</button>
         </form>
       </Wrapper>
     );
@@ -136,6 +148,6 @@ const mapStateToProps = state => {
 }
 
 
-const Ask = connect(mapStateToProps)(AskComponent);
+const Ask = connect(mapStateToProps)(withRouter(AskComponent));
 
 export default Ask;

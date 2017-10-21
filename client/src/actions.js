@@ -1,16 +1,24 @@
 export const LOAD_NEED = 'LOAD_NEED';
+export const LOAD_NEEDS = 'LOAD_NEEDS';
 export const LOAD_NEED_TYPES = 'LOAD_NEED_TYPES';
 
-export function loadNeed(item) {
+export function loadNeed(need) {
   return {
     type: LOAD_NEED,
-    item
+    need
   }
 }
 
-export function loadNeedTypes(needs) {
+export function loadNeeds(needs) {
+  return {
+    type: LOAD_NEEDS,
+    needs
+  }
+}
+
+export function loadNeedTypes(types) {
   return {
     type: LOAD_NEED_TYPES,
-    needs
+    types
   }
 }
