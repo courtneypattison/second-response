@@ -149,7 +149,7 @@ class AskComponent extends Component {
           </input>
           <input type="text"
                  placeholder="Zip Code"
-                 onChange={this.updateZipCode}
+                 onChange={this.updateZip}
                  value={this.state.zip}>
           </input>
           <button className="submit cta-dark" type="submit">Submit</button>

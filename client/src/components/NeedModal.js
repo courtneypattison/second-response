@@ -18,7 +18,7 @@ const NeedModal = ({need, onClose, onFill}) => (
     >
     <div className="modal-content list-item">
       <h1>
-        {`${need.count} ${need.need} needed`}
+        {`${need.quantity} ${need.need} needed`}
       </h1>
       <p className="subtext">
         {need.description}
