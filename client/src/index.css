@@ -119,7 +119,7 @@ ul.list-items .list-item p {
 
 .cta-light {
     background-color: #eee;
-    color: #456496;
+    color: #0094DA;
     border: 1px solid #eee;
 }
 
@@ -129,9 +129,9 @@ ul.list-items .list-item p {
 }
 
 .cta-dark {
-  background-color: #456496;
+  background-color: #0094DA;
   color: #fff;
-  border: 1px solid #456496;
+  border: 1px solid #0094DA;
 }
 
 .cta-dark:hover {

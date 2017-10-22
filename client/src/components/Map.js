@@ -9,7 +9,6 @@ class MapView extends Component {
     this.state = {}
   }
 
-
   render() {
     return (
       <div id="map" className='map'>Map goes here</div>
