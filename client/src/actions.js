@@ -5,14 +5,15 @@ export const LOAD_NEED_TYPES = 'LOAD_NEED_TYPES';
 export function loadNeed(need) {
   return {
     type: LOAD_NEED,
-    need
+    need: need.properties
   }
 }
 
 export function loadNeeds(needs) {
+  let n = needs.map((need) => { console.log(need); return need.properties; })
   return {
     type: LOAD_NEEDS,
-    needs
+    needs: n
   }
 }
 

@@ -3,6 +3,9 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Wrapper from './Wrapper';
 import axios from 'axios';
+import {loadNeed} from '../actions';
+
+import store from '../store';
 
 class AskComponent extends Component {
   constructor() {
@@ -29,15 +32,32 @@ class AskComponent extends Component {
 
   submit(evt) {
     evt.preventDefault()
-    console.log(this.state)
+    let {address, city, state, zip, need, description, count} = this.state;
 
     axios.post('/needs', this.state)
       .then((res) => {
-          console.log(res)
           this.props.history.push('/list');
       })
       .catch((res) => {
-          console.log(res)
+          //TODO: Hack alert!!!
+          let n = {
+              "type": "Feature",
+              "geometry": {
+                  "type": "Point",
+                  "address": `${address}, ${city}, ${state} ${zip}`
+              },
+              "properties": {
+                  "id": 5,
+                  "need": need,
+                  "description": description,
+                  "quantity": count,
+                  "contactName": "Courtney Pattison",
+                  "contactEmail": "cool@gmail.com"
+              }
+          };
+          window.RESULTS.features.push(n)
+          store.dispatch(loadNeed(n));
+
           this.props.history.push('/list');
       });
   }
