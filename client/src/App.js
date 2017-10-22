@@ -13,7 +13,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App"></div>
+      <div className="App">
+        <img id="headerlogo" src="longlogo.png"/>
+      </div>
     );
   }
 }

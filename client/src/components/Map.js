@@ -11,7 +11,7 @@ class MapView extends Component {
 
   render() {
     return (
-      <div id="map" className='map'>Map goes here</div>
+      <div id="map" className='map'></div>
     )
   }
 }
