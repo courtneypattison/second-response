@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <img id="headerlogo" src="longlogo.png"/>
+        <a href="/"><img id="headerlogo" src="longlogo.png"/></a>
       </div>
     );
   }
