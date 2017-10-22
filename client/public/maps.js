@@ -1,4 +1,5 @@
-var results = {
+var MAPS_LOADED = false;
+var RESULTS = {
     "type": "FeatureCollection",
     "features": [
         {
@@ -42,9 +43,25 @@ var results = {
                 "contactName": "Amelia Lin",
                 "contactEmail": "alin@gmail.com"
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "address": "5350 Mountain Home Ranch Rd, Calistoga, CA 94515"
+            },
+            "properties": {
+                "need": "Food",
+                "description": "Pizza please",
+                "quantity": "12",
+                "contactName": "Courtney Pattison",
+                "contactEmail": "cool@gmail.com"
+            }
         }
     ]
 }
+
+window.RESULTS = RESULTS;
 
 function initMap() {
     var central = { lat: 38.350676, lng: -122.384205 };
@@ -57,16 +74,16 @@ function initMap() {
     var geocoder = new google.maps.Geocoder();
     var infowindow = new google.maps.InfoWindow();
 
-    for (var i = 0; i < results.features.length; i++) {
+    for (var i = 0; i < RESULTS.features.length; i++) {
         (function () {
 
 
-            var address = results.features[i].geometry.address;
-            var need = results.features[i].properties.need;
-            var description = results.features[i].properties.description;
-            var quantity = results.features[i].properties.quantity;
-            var contactName = results.features[i].properties.contactName;
-            var contactEmail = results.features[i].properties.contactEmail;
+            var address = RESULTS.features[i].geometry.address;
+            var need = RESULTS.features[i].properties.need;
+            var description = RESULTS.features[i].properties.description;
+            var quantity = RESULTS.features[i].properties.quantity;
+            var contactName = RESULTS.features[i].properties.contactName;
+            var contactEmail = RESULTS.features[i].properties.contactEmail;
 
             var contentString = '<div id="content">' +
                 '<div id="siteNotice">' +
@@ -102,3 +119,17 @@ function initMap() {
         })();
     }
 }
+
+function setMapsLoaded () {
+  MAPS_LOADED = true;
+  initMap();
+}
+
+
+var interval = setInterval(function () {
+  let el = document.getElementById('map');
+  if (el && MAPS_LOADED) {
+      clearInterval(interval);
+      initMap();
+  }
+}, 200);

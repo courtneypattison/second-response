@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
+
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
